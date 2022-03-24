@@ -8,7 +8,7 @@ function mergeSort(arr,left,right){
   }
 
    let mid = Math.floor((left+right)/2)
-   console.log("mid",mid)
+//    console.log("mid",mid)
 
      mergeSort(arr,left,mid)
      mergeSort(arr,mid+1,right)
@@ -32,8 +32,8 @@ function merge(arr,left,mid,right){
   }
   
   
-  console.log("arr1",arr1)
-  console.log("arr2",arr2)
+//   console.log("arr1",arr1)
+//   console.log("arr2",arr2)
   // console.log("arr",arr)
 
   let current = left
@@ -65,5 +65,5 @@ function merge(arr,left,mid,right){
     current++
   }
 
-  console.log("arr",arr)
+//   console.log("arr",arr)
 }
