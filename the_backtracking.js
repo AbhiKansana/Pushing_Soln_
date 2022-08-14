@@ -1,65 +1,69 @@
 
-
-const arr =  [
-    [0,0,0,0],
-    [0,'*','*',0],
-    [0,'*','*',0],
-    [0,0,0,0]
+let arr  = [
+     [0,0,0,0],
+     [0,0,0,0],
+     [0,0,0,0],
+     [0,0,0,0]
 ]
 
-const n = arr.length
+let ar1 = [1,-1,0,0]
+let ar2 = [0,0,1,-1]
+
+let n = arr.length
 let cnt = 0
 
-function fun(i,j){
+function main(i,j){
 
-    // base case
-    if(i===n-1 && j===n-1){
-        cnt ++
-      if(cnt<30){
-        console.log("hurray",cnt)
-        console.log(arr)
-        
-      }
-        return
-    }
+  // console.log(arr)
+  if(i=== n-1 && j=== n-1){
+    cnt++
+    return
+  }
 
- 
-    if(i+1<n && arr[i+1][j]!==1 && arr[i+1][j]!=='*'){
-        arr[i][j] = 1    
-       // console.log(arr)
-        fun(i+1,j)
-        arr[i][j] = 0
-    }
+
+  // all once
+
+  for(let k=0; k<n; k++){
+     if(j+ar1[k]<n && j+ar1[k]>=0 && i+ar2[k]<n && i+ar2[k]>=0 && arr[i+ar2[k]][j+ar1[k]]===0){
+       arr[i][j] = 2
+       main(i+ar2[k],j+ar1[k])
+       arr[i][j] = 0
+     }
+  }
+  
 
   
- 
-    if(j+1<n && arr[i][j+1]!==1 && arr[i][j+1]!=='*'){
-        arr[i][j]= 1
-      // console.log(arr)
-        fun(i,j+1)
-        arr[i][j] = 0
-    }
+// // Right
+//  if(j+1<n && arr[i][j+1]===0){
+//     arr[i][j]=2
+//    main(i,j+1)
+//    arr[i][j]=0
+//  }
 
-  
-    if(i-1>=0 && arr[i-1][j]!==1 && arr[i-1][j]!=='*'){
-        arr[i][j] = 1    
-      // console.log(arr)
-        fun(i-1,j)
-        arr[i][j] = 0
-    }
+//   // Left
+//  if(j-1>=0 && arr[i][j-1]===0){
+//     arr[i][j]=2
+//    main(i,j-1)
+//    arr[i][j]=0
+//  }
 
+// // Down
+//   if(i+1<n && arr[i+1][j]===0){
+//     arr[i][j]=2
+//     main(i+1,j)
+//     arr[i][j]=0
+//   }
 
-    
-    if(j-1>=0 && arr[i][j-1]!==1 && arr[i][j-1]!=='*'){
-        arr[i][j]= 1
-      // console.log(arr)
-        fun(i,j-1)
-        arr[i][j] = 0
-    }
+//   // Up
+//   if(i-1>=0 && arr[i-1][j]===0){
+//     arr[i][j]=2
+//     main(i-1,j)
+//     arr[i][j]=0
 
-  
+//  }
+
 
 }
 
-fun(0,0)
+main(0,0)
 console.log(cnt)
