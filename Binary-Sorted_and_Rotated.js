@@ -1,5 +1,6 @@
 function logic(n,k,arr){
 //   console.log(N,K,arr)
+//    just seeing
     
     let low = 0
     let high = n-1
