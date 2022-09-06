@@ -4,6 +4,7 @@ let date = new Date()
 
 
 let day = date.getDate()
+// commment
 if(day<10){
   day = `0${day}`
 }
